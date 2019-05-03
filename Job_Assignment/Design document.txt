@@ -1,0 +1,26 @@
+Author: Emil Vesa
+Mail: emil.vesa@gmail.com
+Phone: +46707385537
+
+
+This System Design Document has been created to outline the system design of the Java application specified in the assignment text.
+* The application is intended to hold bands with their members and either print band details, remove random members from bands or quit the application based on user input.
+* Inside the Program class constructor 2 base Bands and 7 base Musicians are decleared.
+* Two singly linked lists have been used in the Program class to hold the different Band and Musician objects. Linked lists were used because with such a low number of musicians
+and bands the overhead is negligable but keeps a dynamic structure. The linked list has also been implemented to add elements to the beggining of the list to assure constant ordo time.
+* The different instrument classes extend one of the abstract classes Percussion/Stringed/KeyedInstrument which in turn extends the abstract class Instrument.
+* Every Musician object holds a boolean value isInBand which is used to attempt to assign a musician to a band. This boolean value could have been removed along with the linked list
+"musicians" and instead add the musicians that are removed from a band to a data structure instead. However, the choice to hold all musicians in one data structure was chosen since 
+that might be the favorable structure to ease future work.
+* Since the assignment text specifies that additional bands might be joining in the future and that "Decide for yourself what would be a logical or fun thing to do",
+an additional command "4" has been added to allow the user to add additional bands.
+* If one should be able to add bands it is also logical that one should be able to add musicians, which is done with the command "5".
+* A lightweight singly linked list MyLinkedList<E> was implemented with basic operations, once again in reference to "Decide for yourself what would be a logical or fun thing to do".
+
+Command list:
+1. List the name of all bands with their members and the properties of their instruments.
+2. Play one night. When this option is chosen, each band loses a random member and musicians without a band try to join a random band.
+Print all changes to the console. For example ”The Void left Tweek and Skaters. Musician Xindea left Frayrats. Musician Xindea joined Tweek and Skaters.”
+3. Exit
+4. Add additional band to application. You will be prompted for a band name.
+5. Add additional musician to application. You will be prompted for a musician name and instrument details.
